@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 
 public class Lib {
@@ -9,7 +8,7 @@ public class Lib {
         int[] array = new int[arraySize];
 
         for (int i=0; i<array.length; i++) {
-            array[i] = r.nextInt(10);
+            array[i] = r.nextInt(100);
         }
 
         return array;
@@ -30,7 +29,29 @@ public class Lib {
                     a[i+1] = temp;
                 }
             }
-            System.out.println(Arrays.toString(a));
         } while (!pass);
+    }
+
+    public int binarySearch(int[] a, int n) {
+        int upperBound = a.length;
+        int lowerBound = 0;
+        int currentIndex=(upperBound+lowerBound)/2;
+
+        while (upperBound-lowerBound>2) {
+
+            System.out.printf("%d, %d, %d\n", lowerBound, currentIndex, upperBound);
+            if (a[currentIndex] == n) {
+                return currentIndex;
+            }
+
+            if (a[currentIndex] > n) {
+                upperBound = currentIndex;
+            } else {
+                lowerBound = currentIndex;
+            }
+
+            currentIndex = (upperBound + lowerBound) / 2;
+        }
+        return -1;
     }
 }
