@@ -32,6 +32,20 @@ public class Lib {
         } while (!pass);
     }
 
+    public int linearSearch(int[] a, int n) {
+        int currentIndex = 0;
+
+        while (currentIndex<a.length) {
+            currentIndex++;
+
+            if (a[currentIndex]==n) {
+                return currentIndex;
+            }
+
+        }
+        return -1;
+    }
+
     public int binarySearch(int[] a, int n) {
         int upperBound = a.length;
         int lowerBound = 0;
