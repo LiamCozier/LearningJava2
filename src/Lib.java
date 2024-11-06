@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class Lib {
@@ -8,7 +9,7 @@ public class Lib {
         int[] array = new int[arraySize];
 
         for (int i=0; i<array.length; i++) {
-            array[i] = r.nextInt(100);
+            array[i] = r.nextInt(20);
         }
 
         return array;
@@ -31,21 +32,11 @@ public class Lib {
     public void bogoSort(int[] a) {
         while (!isSorted(a)) {
 
-            int i1 = r.nextInt(a.length)-1;
-            int i2 = r.nextInt(a.length)-1;
+            int i1 = r.nextInt(a.length);
+            int i2 = r.nextInt(a.length);
 
             swapIndexes(a, i1, i2);
-        }
-    }
-
-    public void insertionSort(int[] a) {
-        for (int i=0; i<a.length-1; i++) {
-            int currentValue = a[i+1];
-
-            int j=0;
-            do {
-
-            } while (true);
+            System.out.println(Arrays.toString(a));
         }
     }
 
@@ -62,7 +53,7 @@ public class Lib {
     public int linearSearch(int[] a, int n) {
         int currentIndex = 0;
 
-        while (currentIndex<a.length) {
+        while (currentIndex<a.length-1) {
             currentIndex++;
 
             if (a[currentIndex]==n) {

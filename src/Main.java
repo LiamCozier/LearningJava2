@@ -7,10 +7,10 @@ public class Main {
         Random r = new Random();
         Lib l = new Lib();
 
-        int[] array = l.fillIntArray(100);
+        int[] array = l.fillIntArray(20);
         l.bubbleSort(array);
         System.out.println(Arrays.toString(array));
-        int n = r.nextInt(100);
-        System.out.printf("Number: %d\nIndex: %d\n", n, l.binarySearch(array, n));
+        int n = r.nextInt(20);
+        System.out.printf("Number: %d\nIndex: %d\n", n, l.linearSearch(array, n));
     }
-}
+} 
