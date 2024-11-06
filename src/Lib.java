@@ -14,22 +14,38 @@ public class Lib {
         return array;
     }
 
+    public boolean isSorted(int[] a) {
+        for (int i=0; i<a.length-1; i++) {
+            if (a[i]>a[i+1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public void swapIndexes(int[] a, int i1, int i2) {
+        int temp = a[i1];
+        a[i1] = a[i2];
+        a[i2] = temp;
+    }
+
+    public void bogoSort(int[] a) {
+        while (!isSorted(a)) {
+
+            int i1 = r.nextInt(a.length)-1;
+            int i2 = r.nextInt(a.length)-1;
+
+            swapIndexes(a, i1, i2);
+        }
+    }
 
     public void bubbleSort(int[] a) {
-        boolean pass;
-
         do {
-            pass = true;
             for (int i=0; i<a.length-1; i++) {
                 if (a[i]>a[i+1]) {
-                    pass = false;
-
-                    int temp = a[i];
-                    a[i] = a[i+1];
-                    a[i+1] = temp;
+                    swapIndexes(a, i, i+1);
                 }
             }
-        } while (!pass);
+        } while (!isSorted(a));
     }
 
     public int linearSearch(int[] a, int n) {
