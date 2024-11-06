@@ -38,6 +38,17 @@ public class Lib {
         }
     }
 
+    public void insertionSort(int[] a) {
+        for (int i=0; i<a.length-1; i++) {
+            int currentValue = a[i+1];
+
+            int j=0;
+            do {
+
+            } while (true);
+        }
+    }
+
     public void bubbleSort(int[] a) {
         do {
             for (int i=0; i<a.length-1; i++) {
