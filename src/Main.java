@@ -7,8 +7,8 @@ public class Main {
         Random r = new Random();
         Lib l = new Lib();
 
-        int[] array = l.fillIntArray(100);
-        l.bubbleSort(array);
+        int[] array = {2, 10, 8, 4};
+        l.mergeSort(array);
         System.out.println(Arrays.toString(array));
         int n = r.nextInt(100);
         System.out.printf("Number: %d\nIndex: %d\n", n, l.binarySearch(array, n));

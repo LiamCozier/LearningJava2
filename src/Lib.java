@@ -1,3 +1,5 @@
+import java.lang.ref.SoftReference;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Lib {
@@ -38,17 +40,6 @@ public class Lib {
         }
     }
 
-    public void insertionSort(int[] a) {
-        for (int i=0; i<a.length-1; i++) {
-            int currentValue = a[i+1];
-
-            int j=0;
-            do {
-
-            } while (true);
-        }
-    }
-
     public void bubbleSort(int[] a) {
         do {
             for (int i=0; i<a.length-1; i++) {
@@ -57,6 +48,43 @@ public class Lib {
                 }
             }
         } while (!isSorted(a));
+    }
+
+    public void mergeSort(int[] a) {
+        System.out.printf("Start, input: %s\n", Arrays.toString(a));
+        int[] sortedArray;
+        sortedArray = new int[a.length];
+
+        int[] array1, array2;
+        if (a.length>1) {
+
+            array1 = Arrays.copyOfRange(a, 0, a.length / 2);
+            array2 = Arrays.copyOfRange(a, (a.length / 2), a.length);
+
+            mergeSort(array1);
+            mergeSort(array2);
+        }
+        else {
+            return;
+        }
+
+        int minLength = Math.min(array1.length, array2.length);
+        for (int i=0; i<minLength; i++) {
+            int x = array1[i];
+            System.out.printf("array1: %s\n", Arrays.toString(array1));
+            int y = array2[i];
+            System.out.printf("array2: %s\n", Arrays.toString(array2));
+            sortedArray[2*i]   = x;
+            sortedArray[2*i+1] = y;
+            if (x > y) {
+                System.out.printf("swaps: %s\tindex: %d\n", Arrays.toString(sortedArray), i);
+                swapIndexes(sortedArray, 2*i, 2*i+1);
+                System.out.printf("swaps: %s\tindex: %d\n", Arrays.toString(sortedArray), i);
+            }
+        }
+        a=Arrays.copyOf(sortedArray, sortedArray.length);
+        System.out.printf("final return: %s\n", Arrays.toString(a));
+
     }
 
     public int linearSearch(int[] a, int n) {
@@ -95,4 +123,6 @@ public class Lib {
         }
         return -1;
     }
+
+
 }
