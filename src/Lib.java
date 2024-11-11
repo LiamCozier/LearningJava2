@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Arrays;
 
 public class Lib {
 
@@ -37,6 +38,39 @@ public class Lib {
             swapIndexes(a, i1, i2);
         }
     }
+
+    public void mergeSort(int[] a) {
+        System.out.printf("Start, input: %s\n", Arrays.toString(a));
+        int[] sortedArray;
+        sortedArray = new int[a.length];
+        int[] array1, array2;
+        if (a.length>1) {
+            array1 = Arrays.copyOfRange(a, 0, a.length / 2);
+            array2 = Arrays.copyOfRange(a, (a.length / 2), a.length);
+            mergeSort(array1);
+            mergeSort(array2);
+        }
+        else {
+            return;
+        }
+        int minLength = Math.min(array1.length, array2.length);
+        for (int i=0; i<minLength; i++) {
+            int x = array1[i];
+            System.out.printf("array1: %s\n", Arrays.toString(array1));
+            int y = array2[i];
+            System.out.printf("array2: %s\n", Arrays.toString(array2));
+            sortedArray[2*i]   = x;
+            sortedArray[2*i+1] = y;
+            if (x > y) {
+                System.out.printf("swaps: %s\tindex: %d\n", Arrays.toString(sortedArray), i);
+                swapIndexes(sortedArray, 2*i, 2*i+1);
+                System.out.printf("swaps: %s\tindex: %d\n", Arrays.toString(sortedArray), i);
+            }
+        }
+        a=Arrays.copyOf(sortedArray, sortedArray.length);
+        System.out.printf("final return: %s\n", Arrays.toString(a));
+    }
+
 
     public void insertionSort(int[] a) {
         for (int i=0; i<a.length-1; i++) {
